@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="mysql-connector-j-8.4.0" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="&lt;Custom&gt;" />
+      <option name="frameworkVersion" value="" />
+      <sourceFilesUrls>
+        <item url="file://D:/MYSQL_CONNECTOR/mysql-connector-j-8.4.0" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://D:/MYSQL_CONNECTOR/mysql-connector-j-8.4.0" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
