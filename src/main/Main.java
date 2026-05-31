@@ -1,18 +1,17 @@
 package main;
-import database.DatabaseManager;
 import model.Vehicle;
 import service.ParkingService;
 import java.time.LocalDateTime;
-
 import java.util.Scanner;
-
 import service.slotManager;
+import report.ReportManager;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         slotManager sm = new slotManager();
         ParkingService ps = new ParkingService(); //object creation syntax
+        ReportManager reportManager = new ReportManager();
 
         // MENU DRIVEN CODE
         int choice;
@@ -53,7 +52,8 @@ public class Main {
                     ps.displayParkingStatus();
                         break;
                 case 5:
-                    System.out.println("Currently Working....");
+                    System.out.println("Generating END DAY Report: ");
+                    reportManager.generateEndDayReport();
                     break;
 
                 case 6:
@@ -79,8 +79,8 @@ public class Main {
         String mobile = sc.nextLine();
         System.out.println("Enter Vehicle Type");
         String vehicleType = sc.nextLine();
-        System.out.println("Enter Vehicle Name");
-        String vehicleName = sc.nextLine();
+        System.out.println("Enter Vehicle Model");
+        String vehicleModel = sc.nextLine();
         System.out.println("Enter Vehicle Number");
         String vehicleNumber = sc.nextLine();
 
@@ -100,13 +100,12 @@ public class Main {
         String ticketId = "TKT" + System.currentTimeMillis(); //it calculates in milliseconds from 1 january 1970 called (EPOCH TIME)
         // hence we get very huge number and  Adding TKT makes it look like ticket ID,
         // since time always change , the id is always unique
-
         Vehicle v = new Vehicle(
                 owner,
                 mobile,
                 vehicleType,
+                vehicleModel,
                 vehicleNumber,
-                vehicleName,
                 slot,
                 floor_Number,
                 entryTime,

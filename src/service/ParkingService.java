@@ -40,13 +40,13 @@ public class ParkingService {
         }
     }
 
-    public void searchVehicle(String searchNumber) {
+    public void searchVehicle(String SN) {
         String query = "SELECT * FROM active_parking WHERE vehicle_number = ?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(query);
 
-            ps.setString(1, searchNumber);
+            ps.setString(1, SN);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -56,14 +56,14 @@ public class ParkingService {
                 System.out.println("Vehicle Number : " + rs.getString("vehicle_number"));
                 System.out.println("Slot Number : " + rs.getString("slot_number"));
                 System.out.println("Floor Number : " + rs.getInt("floor_number"));
-            } else {
+            }
+            else {
                 System.out.println("Vehicle Not Found");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 
     public void exitVehicle(String exitNumber) {
         String searchquery = "Select * FROM active_parking WHERE vehicle_number = ?";
